@@ -15,15 +15,14 @@ st.title("📱 Rekomendasi Smartphone Berdasarkan Kebutuhan Pengguna")
 # Input dari pengguna
 st.subheader("Masukkan Spesifikasi yang Diinginkan:")
 internal = st.number_input("💾 Memori Internal (GB)", min_value=1, max_value=1024, value=128)
-kamera = st.number_input("📸 Kamera Utama (MP)", min_value=1, max_value=200, value=64)
 baterai = st.number_input("🔋 Kapasitas Baterai (mAh)", min_value=1000, max_value=10000, value=5000)
 
 # Prediksi
 if st.button("🔍 Prediksi Kebutuhan"):
-    data_input = pd.DataFrame([[internal, kamera, baterai]],
-                              columns=["memory_internal", "main_camera_dual", "battery"])
+    data_input = pd.DataFrame([[internal, baterai]],
+                              columns=["memory_internal", "battery"])
     
     prediksi_kode = clf.predict(data_input)[0]
     kebutuhan = le.inverse_transform([prediksi_kode])[0]
 
-    st.success(f"🎯 Kategori Kebutuhan Smartphone: **{kebutuhan}**")
+    st.success(f"Kategori Kebutuhan Smartphone: **{kebutuhan}**")
