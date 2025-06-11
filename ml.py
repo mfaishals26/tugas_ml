@@ -26,3 +26,12 @@ if st.button("🔍 Prediksi Kebutuhan"):
     kebutuhan = le.inverse_transform([prediksi_kode])[0]
 
     st.success(f"Kategori Kebutuhan Smartphone: **{kebutuhan}**")
+
+# Tampilkan deskripsi kategori
+if kebutuhan == "Gaming":
+    st.info("🎮 **Gaming**: Direkomendasikan untuk pengguna yang bermain game berat. Memiliki RAM besar dan chipset performa tinggi.")
+elif kebutuhan == "Multimedia":
+    st.info("🎥 **Multimedia**: Cocok untuk streaming, menonton video, dan konsumsi media. Biasanya memiliki baterai besar.")
+elif kebutuhan == "Basic":
+    st.info("📱 **Basic**: Digunakan untuk kebutuhan ringan seperti chat, browsing, dan aplikasi standar.")
+
